@@ -9,35 +9,9 @@ A simple URL shortener API built with ASP.NET Core 8 and SQLite.
 - SQLite
 - Swagger/OpenAPI
 
-## Database Setup
-
-After cloning the repository:
-
-1. Restore packages:
-
-```bash
-dotnet restore
-```
-
-2. Apply the database migration:
-
-```bash
-dotnet ef database update
-```
-
-This will create the SQLite database and apply the required schema.
-
 ## Short URL Storage Design
 
 The database stores the generated short code rather than the complete shortened URL. The full short URL is generated dynamically using the application's current host and the stored short code, keeping the database independent of the deployment environment and allowing domain changes without requiring database updates.
-
-## Running the Application
-
-After applying migrations:
-
-```bash
-dotnet run
-```
 
 The API documentation is available through Swagger while running in the development environment.
 
