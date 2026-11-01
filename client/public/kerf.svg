@@ -1,0 +1,17 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <title>Kerf</title>
+  <defs>
+    <linearGradient id="kerf-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b45cff"/>
+      <stop offset="1" stop-color="#6d28d9"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#kerf-bg)"/>
+  <g transform="rotate(-45 32 32)" stroke="#fff" stroke-linecap="round">
+    <!-- A chain link with a kerf (cut) through it -->
+    <path d="M27 22H20a10 10 0 0 0 0 20h7" stroke-width="6"/>
+    <path d="M37 22h7a10 10 0 0 1 0 20h-7" stroke-width="6"/>
+    <!-- The dotted "cut here" line running through the gap -->
+    <path d="M32 7v5M32 52v5M32 28v8" stroke-width="3" opacity="0.8"/>
+  </g>
+</svg>

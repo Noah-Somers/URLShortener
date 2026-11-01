@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import type { SubmitEvent } from 'react'
+import { Check, Copy } from 'lucide-react'
 import { shortenUrl } from './api'
+import './App.css'
 
 function App() {
     const [url, setUrl] = useState('')
@@ -36,18 +38,22 @@ function App() {
 
     return (
         <main>
-            <h1>URL Shortener</h1>
+            <h1 className="brand">
+                <img src="/kerf.svg" alt="" width={56} height={56} />
+                Kerf
+            </h1>
 
-            <form onSubmit={handleSubmit}>
+            <form className="shorten-form" onSubmit={handleSubmit}>
                 <input
                     type="url"
                     value={url}
                     onChange={(event) => setUrl(event.target.value)}
-                    placeholder="https://example.com/a/very/long/link"
+                    placeholder="Paste a long URL"
+                    aria-label="URL to cut"
                     required
                 />
                 <button type="submit" disabled={isLoading}>
-                    {isLoading ? 'Shortening...' : 'Shorten'}
+                    {isLoading ? 'Cutting...' : 'Cut'}
                 </button>
             </form>
 
@@ -58,16 +64,31 @@ function App() {
             )}
 
             {shortUrl && (
-                <p>
-                    Your short URL:{' '}
-                    <a href={shortUrl} target="_blank" rel="noreferrer">
-                        {shortUrl}
-                    </a>{' '}
-                    <button type="button" onClick={handleCopy}>
-                        {copied ? 'Copied!' : 'Copy'}
+                <div className="result">
+                    <label htmlFor="short-url"> Your short URL</label>
+                    <div className="copy-field">
+                        <input
+                            id="short-url"
+                            type="text"
+                            value={shortUrl}
+                            readOnly
+                            onFocus={(event) => event.target.select()}
+                        />
+                    <button
+                        type="button"
+                        className={copied ? 'copy-button copied' : 'copy-button'}
+                        onClick={handleCopy}
+                        aria-label={copied ? 'Copied' : 'Copy short URL'}
+                        title={copied ? 'Copied!' : 'Copy'}
+                    >
+                        {copied ? <Check size={18} /> : <Copy size={18} />}
                     </button>
-                </p>
-            )}
+                    </div>
+                    <a className="open-link" href={shortUrl} target="_blank" rel="noreferrer">
+                    Open Link
+                    </a>
+                </div>
+                )}
         </main>
     )
 }

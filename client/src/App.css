@@ -1,0 +1,122 @@
+.result {
+    width: min(480px, 100%);
+    margin: 24px auto 0;
+    text-align: left;
+}
+
+    .result label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 14px;
+    }
+
+/* The wrapper is the reference point for positioning the button */
+.copy-field {
+    position: relative;
+}
+
+    .copy-field input {
+        width: 100%;
+        box-sizing: border-box;
+        /* Extra right padding so text never runs underneath the button */
+        padding: 10px 44px 10px 12px;
+        font: 16px var(--mono);
+        color: var(--text-h);
+        background: var(--code-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+    }
+
+        .copy-field input:focus {
+            outline: none;
+            border-color: var(--accent-border);
+        }
+
+/* Pinned inside the right edge of the wrapper, vertically centered */
+.copy-button {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    color: var(--text);
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+    .copy-button:hover,
+    .copy-button:focus-visible {
+        color: var(--accent);
+        background: var(--accent-bg);
+    }
+
+    .copy-button.copied {
+        color: #22c55e;
+    }
+
+.open-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--accent);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.shorten-form {
+    display: flex;
+    gap: 8px;
+    width: min(480px, 100%);
+    margin: 0 auto;
+}
+
+    .shorten-form input {
+        flex: 1;
+        min-width: 0;
+        padding: 10px 12px;
+        font: inherit;
+        font-size: 16px;
+        color: var(--text-h);
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+    }
+
+        .shorten-form input:focus {
+            outline: none;
+            border-color: var(--accent-border);
+            box-shadow: 0 0 0 3px var(--accent-bg);
+        }
+
+    .shorten-form button {
+        padding: 10px 22px;
+        font: inherit;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        background: #7c3aed;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+        .shorten-form button:hover:not(:disabled) {
+            background: #6d28d9;
+        }
+
+        .shorten-form button:disabled {
+            opacity: 0.6;
+            cursor: wait;
+        }
